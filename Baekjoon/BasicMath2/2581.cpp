@@ -2,40 +2,31 @@
 
 using namespace std;
 
+void primeNumberSieve(int ary[], int N) {
+    for (int i = 2; i <= N; i++) {
+        ary[i] = i;
+    }
+
+    for (int i = 2; i <= N; i++) {
+        if (ary[i] == 0 ) continue;
+        for (int j = i + i; j <= N; j += i) {
+            ary[j] = 0;
+        }
+    }
+}
+
 int main() {
-    int N, M, sum = 0, min = 10001;
-    cin >> M >> N;
+    int num[10001] = {0};
+    int sum = 0, min = 10001;
+    int N, M; cin >> M >> N;
 
-    while (M <= N) {
-        int check = 1; //1이면 소수
-
-        if (M == 1) {
-                check = 0;
-        }
-
-        for (int i = 2; i < M; i++) {
-            if ((M % i) == 0) {
-                check = 0;
-                break;
-            }
-        }
-
-        if (check == 1) {
-            if (min > M) {
-                min = M;
-            }
-
-            sum += M;
-        }
-
-        M++;
-    }
-    
-    if (sum == 0) {
-        cout << -1;
-        return 0;
+    primeNumberSieve(num, N);
+    for (int i = M; i <= N; i++) {
+        if (num[i] == 0) continue;
+        if (min > num[i]) min = num[i];
+        sum += num[i]; 
     }
 
-    cout << sum << "\n" << min;
-
+    if (sum == 0) cout << -1;
+    else cout << sum << "\n" << min;
 }
