@@ -6,7 +6,6 @@ using namespace std;
 int num[246912];
 
 int primeNumberSieve(int N) {
-
     int cnt = 0;
 
     for (int i = 2; i <= 2 * N; i++) {
