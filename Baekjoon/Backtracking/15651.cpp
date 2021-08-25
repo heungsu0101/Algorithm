@@ -2,7 +2,6 @@
 
 using namespace std;
 
-bool num[9];
 int order[9];
 
 void permutation(int k, int N, int M) {
