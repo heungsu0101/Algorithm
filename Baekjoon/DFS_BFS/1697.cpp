@@ -8,7 +8,6 @@ queue<int> q;
 int cnt[100005];
 bool check[100005];
 int bfs(int N, int K) {
-
     check[N] = true;
     q.push(N);
     while (!q.empty()) {
