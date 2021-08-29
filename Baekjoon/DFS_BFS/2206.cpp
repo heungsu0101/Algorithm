@@ -64,11 +64,4 @@ int main() {
         }
     }
     printf("%d\n", bfs(N, M));
-
-    for (int i = 1; i <= N; i++) {
-        for (int j = 1; j <= M; j++) {
-            printf("%d ", check[i][j][1]);
-        }
-        printf("\n");
-    }
 }
